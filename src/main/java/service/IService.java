@@ -1,4 +1,4 @@
 package service;
 
-public interface IService {
+public interface IService<ID> {
 }

@@ -1,22 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.AeroportController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AeroportController">
 <AnchorPane>
   <children>
     <VBox>
       <children>
-        <Label fx:id="loggedUserNameLabel" text="Username"/>
+        <Label fx:id="loggedUserNameLabel" text="Username" />
       </children>
     </VBox>
+         <HBox layoutY="26.0" prefHeight="566.0" prefWidth="251.0">
+            <children>
+               <VBox prefHeight="566.0" prefWidth="254.0">
+                  <children>
+                     <Label alignment="CENTER" prefHeight="18.0" prefWidth="251.0" text="Purchased Tickets" textAlignment="CENTER">
+                        <font>
+                           <Font name="System Bold" size="12.0" />
+                        </font></Label>
+                     <TableView fx:id="purchasedTicketsTableView" prefHeight="263.0" prefWidth="207.0">
+                       <columns>
+                         <TableColumn fx:id="flightIdColumn" prefWidth="82.80000150203705" text="Flight ID" />
+                         <TableColumn fx:id="purchaseTimeColumn" prefWidth="166.60000610351562" text="PurchaseTime" />
+
+                       </columns>
+                     </TableView>
+                     <Label alignment="CENTER" prefHeight="18.0" prefWidth="252.0" text="All Tickets Purchased on 24th Janurary 24" />
+                     <TableView fx:id="ticketsFromDateTableView" prefHeight="267.0" prefWidth="251.0">
+                       <columns>
+                         <TableColumn fx:id="flightIdFromDateColumn" prefWidth="77.59999084472656" text=" Flight ID" />
+                         <TableColumn fx:id="purchaseTimeFromDateColumn" prefWidth="173.60000610351562" text="PurchaseTime" />
+                       </columns>
+                     </TableView>
+                  </children>
+               </VBox>
+            </children>
+         </HBox>
   </children>
 </AnchorPane>
+   <HBox layoutX="285.0" layoutY="24.0" prefHeight="566.0" prefWidth="270.0">
+      <children>
+         <VBox prefHeight="566.0" prefWidth="272.0">
+            <children>
+               <Label alignment="CENTER" prefHeight="18.0" prefWidth="273.0" text="Choose FROM and TO" />
+               <VBox prefHeight="97.0" prefWidth="270.0">
+                  <children>
+                     <ComboBox fx:id="comboBoxFrom" prefHeight="26.0" prefWidth="271.0" promptText="From" />
+                     <ComboBox fx:id="comboBoxTo" prefHeight="26.0" prefWidth="271.0" promptText="To" />
+                  </children>
+               </VBox>
+               <Label alignment="CENTER" prefHeight="18.0" prefWidth="290.0" text="Choose the DATE" />
+               <VBox prefHeight="49.0" prefWidth="270.0">
+                  <children>
+                     <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="270.0" />
+                  </children>
+               </VBox>
+               <AnchorPane prefHeight="60.0" prefWidth="270.0">
+                  <children>
+                     <Button fx:id="showFlights_btn" onAction="#handleShowFlights" contentDisplay="CENTER" layoutX="91.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="See flights" />
+                  </children>
+               </AnchorPane>
+               <Label alignment="CENTER" prefHeight="18.0" prefWidth="270.0" text="Flights that depart on the chosen date">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Label>
+               <VBox prefHeight="255.0" prefWidth="270.0">
+                  <children>
+                     <TableView fx:id="flightsByDateTableView" prefHeight="255.0" prefWidth="270.0">
+                       <columns>
+                         <TableColumn fx:id="flightIdByDateColumn" prefWidth="133.79998779296875" text="Flight ID" />
+                         <TableColumn fx:id="seatsByDateColumn" prefWidth="136.60003662109375" text="Number of seats" />
+                       </columns>
+                     </TableView>
+                  </children>
+               </VBox>
+            </children>
+         </VBox>
+      </children>
+   </HBox>
 </AnchorPane>

@@ -1,4 +1,4 @@
 package domain.validator;
 
-public class IValidationFactory {
+public interface IValidationFactory {
 }

@@ -1,4 +1,7 @@
 package repo;
 
-public class IClientRepo {
+import domain.Client;
+
+public interface IClientRepo extends IRepository<Long, Client>{
+    Client findByUsername(String username);
 }
