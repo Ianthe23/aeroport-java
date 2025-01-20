@@ -5,48 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99338661-4ac8-4332-a6ed-389b14efe25b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/FlightRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/IFlightRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AeroportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AeroportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AlertMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AlertMessages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Flight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/validator/IValidationFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/validator/IValidationFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/RepoException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/RepoException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ValidationException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aeroport/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aeroport/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aeroport/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aeroport/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/IClientRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/IClientRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/IRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/ITicketRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/ITicketRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/ClientDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/ClientDataBaseRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/FlightDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/FlightDataBaseRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/TicketDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/TicketDataBaseRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/factory/EDataBaseStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/EDataBaseStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/factory/IDataBaseFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/IDataBaseFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/utils/AbstractDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/utils/AbstractDataBaseRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/utils/DataBaseAcces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/utils/DataBaseAcces.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/AeroportService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/AeroportService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/IService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/IService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/events/AeroportEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/events/AeroportEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/events/EEventType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/events/EEventType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/observer/IObservable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/observer/IObservable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/observer/IObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/observer/IObserver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/aeroport/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/aeroport/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/aeroport/views/aeroport-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/aeroport/views/aeroport-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +55,7 @@
   "keyToString": {
     "Gradle.aeroport [:org.example.aeroport.App.main()].executor": "Run",
     "Gradle.aeroport [:org.example.aeroport.HelloApplication.main()].executor": "Run",
-    "Gradle.aeroport [:org.example.aeroport.Main.main()].executor": "Debug",
+    "Gradle.aeroport [:org.example.aeroport.Main.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
@@ -151,22 +110,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1737303917175</updated>
-      <workItem from="1737303918236" duration="15577000" />
+      <workItem from="1737303918236" duration="16685000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/AeroportController.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

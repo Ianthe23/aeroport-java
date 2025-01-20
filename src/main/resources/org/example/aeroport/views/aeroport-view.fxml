@@ -27,7 +27,11 @@
 
                        </columns>
                      </TableView>
-                     <Label alignment="CENTER" prefHeight="18.0" prefWidth="252.0" text="All Tickets Purchased on 24th Janurary 24" />
+                     <Label alignment="CENTER" prefHeight="18.0" prefWidth="252.0" text="All Tickets Purchased on 24th Janurary 24">
+                       <font>
+                         <Font name="System Bold" size="12.0" />
+                       </font>
+                     </Label>
                      <TableView fx:id="ticketsFromDateTableView" prefHeight="267.0" prefWidth="251.0">
                        <columns>
                          <TableColumn fx:id="flightIdFromDateColumn" prefWidth="77.59999084472656" text=" Flight ID" />
@@ -44,14 +48,22 @@
       <children>
          <VBox prefHeight="566.0" prefWidth="272.0">
             <children>
-               <Label alignment="CENTER" prefHeight="18.0" prefWidth="273.0" text="Choose FROM and TO" />
+               <Label alignment="CENTER" prefHeight="18.0" prefWidth="273.0" text="Choose FROM and TO">
+                 <font>
+                   <Font name="System Bold" size="12.0" />
+                 </font>
+               </Label>
                <VBox prefHeight="97.0" prefWidth="270.0">
                   <children>
                      <ComboBox fx:id="comboBoxFrom" prefHeight="26.0" prefWidth="271.0" promptText="From" />
                      <ComboBox fx:id="comboBoxTo" prefHeight="26.0" prefWidth="271.0" promptText="To" />
                   </children>
                </VBox>
-               <Label alignment="CENTER" prefHeight="18.0" prefWidth="290.0" text="Choose the DATE" />
+               <Label alignment="CENTER" prefHeight="18.0" prefWidth="290.0" text="Choose the DATE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+               </Label>
                <VBox prefHeight="49.0" prefWidth="270.0">
                   <children>
                      <DatePicker fx:id="datePicker" prefHeight="26.0" prefWidth="270.0" />
@@ -59,7 +71,7 @@
                </VBox>
                <AnchorPane prefHeight="60.0" prefWidth="270.0">
                   <children>
-                     <Button fx:id="showFlights_btn" onAction="#handleShowFlights" contentDisplay="CENTER" layoutX="91.0" layoutY="1.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="89.0" text="See flights" />
+                     <Button fx:id="showFlights_btn" contentDisplay="CENTER" layoutX="91.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleShowFlights" prefHeight="26.0" prefWidth="89.0" text="See flights" />
                   </children>
                </AnchorPane>
                <Label alignment="CENTER" prefHeight="18.0" prefWidth="270.0" text="Flights that depart on the chosen date">
@@ -67,7 +79,7 @@
                      <Font name="System Bold" size="12.0" />
                   </font>
                </Label>
-               <VBox prefHeight="255.0" prefWidth="270.0">
+               <VBox prefHeight="271.0" prefWidth="270.0">
                   <children>
                      <TableView fx:id="flightsByDateTableView" prefHeight="255.0" prefWidth="270.0">
                        <columns>
@@ -77,6 +89,13 @@
                      </TableView>
                   </children>
                </VBox>
+               <AnchorPane prefHeight="57.0" prefWidth="270.0">
+                 <Button fx:id="buyTicketBtn" onAction="#handleBuyTicket" layoutX="86.0" prefHeight="26.0" prefWidth="90.0">
+                     <graphic>
+                        <Label text="Buy Ticket" />
+                     </graphic>
+                 </Button>
+               </AnchorPane>
             </children>
          </VBox>
       </children>

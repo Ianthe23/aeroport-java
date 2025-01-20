@@ -18,6 +18,7 @@ import java.util.Optional;
 public class TicketDataBaseRepo extends AbstractDataBaseRepo<Long, Ticket> implements ITicketRepo {
     private final String GET_ALL_TICKETS = "SELECT username, flight_id, purchaseTime FROM Ticket";
     private final String GET_ALL_TICKETS_BY_DATE = "SELECT username, flight_id, purchaseTime FROM Ticket WHERE (purchaseTime >= ? AND purchaseTime < ?)";
+    private final String INSERT_TICKET = "INSERT INTO Ticket (username, flight_id, purchaseTime) VALUES (?, ?, ?)";
 
     private static Ticket getTicket(ResultSet resultSet) throws SQLException {
         String username = resultSet.getString("username");
@@ -58,7 +59,15 @@ public class TicketDataBaseRepo extends AbstractDataBaseRepo<Long, Ticket> imple
 
     @Override
     public Optional<Ticket> save(Ticket entity) {
-        return Optional.empty();
+        try (PreparedStatement statement = data.createStatement(INSERT_TICKET)) {
+            statement.setString(1, entity.getUsername());
+            statement.setLong(2, entity.getFlightId());
+            statement.setTimestamp(3, Timestamp.valueOf(entity.getPurchaseTime()));
+            statement.execute();
+            return Optional.of(entity);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

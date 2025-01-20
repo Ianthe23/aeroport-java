@@ -3,6 +3,7 @@ package controller;
 import domain.Client;
 import domain.Flight;
 import domain.Ticket;
+import exceptions.ServiceException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ import utils.events.AeroportEvent;
 import utils.observer.IObserver;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -32,6 +34,9 @@ public class AeroportController implements IObserver<AeroportEvent> {
 
     @FXML
     private ObservableList<Flight> modelFlightsByDate = FXCollections.observableArrayList();
+
+    @FXML
+    Button buyTicketBtn;
 
     @FXML
     ComboBox<String> comboBoxFrom;
@@ -154,6 +159,23 @@ public class AeroportController implements IObserver<AeroportEvent> {
 
         flightsByDateTableView.setItems(FXCollections.observableArrayList(rows));
         initializeTableFromDateFromTo();
+    }
+
+    @FXML
+    public void handleBuyTicket() {
+        FlightRow selectedFlightRow = flightsByDateTableView.getSelectionModel().getSelectedItem();
+        if (selectedFlightRow == null) {
+            AlertMessages.showMessage(primaryStage, Alert.AlertType.ERROR, "Error", "No flight selected");
+        }
+
+        try {
+            Long flightId = selectedFlightRow.getFlightId();
+            Ticket ticket = new Ticket(loggedClient.getUsername(), flightId, LocalDateTime.now());
+            service.addTicket(ticket);
+        } catch (ServiceException e) {
+            AlertMessages.showMessage(primaryStage, Alert.AlertType.ERROR, "Error", e.getMessage());
+        }
+
     }
 
     @Override

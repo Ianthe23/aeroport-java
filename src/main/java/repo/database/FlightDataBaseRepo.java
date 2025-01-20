@@ -16,6 +16,8 @@ public class FlightDataBaseRepo extends AbstractDataBaseRepo<Long, Flight> imple
     private final String GET_ALL_TO = "SELECT to_city from flight GROUP BY to_city";
     private final String GET_FLIGHTS_FROM_DATE_AND_FROM_AND_TO = "SELECT * from flight WHERE (departureTime >= ? AND landingTime < ?) AND from_city = ? AND to_city = ?";
     private final String GET_ID_FROM_FLIGHT_FROM_TO_DATE = "SELECT id from flight WHERE from_city = ? AND to_city = ? AND departureTime = ? and landingTime = ?";
+    private final String GET_FLIGHT_BY_ID = "SELECT * from flight WHERE id = ?";
+    private final String UPDATE_SEATS_FROM_FLIGHT_BY_ID = "UPDATE flight SET seats = ? WHERE id = ?";
 
 
     public FlightDataBaseRepo(DataBaseAcces data, String table) {
@@ -24,7 +26,22 @@ public class FlightDataBaseRepo extends AbstractDataBaseRepo<Long, Flight> imple
 
     @Override
     public Optional<Flight> findOne(Long aLong) {
-        return Optional.empty();
+        try (PreparedStatement statement = data.createStatement(GET_FLIGHT_BY_ID)) {
+            statement.setLong(1, aLong);
+            var resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(new Flight(
+                        resultSet.getString("from_city"),
+                        resultSet.getString("to_city"),
+                        resultSet.getTimestamp("departureTime").toLocalDateTime(),
+                        resultSet.getTimestamp("landingTime").toLocalDateTime(),
+                        resultSet.getInt("seats")
+                ));
+            }
+            return Optional.empty();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -44,7 +61,14 @@ public class FlightDataBaseRepo extends AbstractDataBaseRepo<Long, Flight> imple
 
     @Override
     public Optional<Flight> update(Flight entity) {
-        return Optional.empty();
+        try (PreparedStatement statement = data.createStatement(UPDATE_SEATS_FROM_FLIGHT_BY_ID)) {
+            statement.setInt(1, entity.getSeats());
+            statement.setLong(2, entity.getId());
+            statement.executeUpdate();
+            return Optional.of(entity);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

@@ -9,6 +9,7 @@ import repo.IFlightRepo;
 import repo.IRepository;
 import repo.ITicketRepo;
 import utils.events.AeroportEvent;
+import utils.events.EEventType;
 import utils.observer.IObservable;
 import utils.observer.IObserver;
 
@@ -86,5 +87,22 @@ public class AeroportService implements IService<Integer>, IObservable<AeroportE
 
     public Long getIds(LocalDateTime departureTime, LocalDateTime landingTime, String from, String to) {
         return flightRepo.getId(departureTime, landingTime, from, to);
+    }
+
+    public Ticket addTicket(Ticket ticket) {
+        Optional<Flight> flight = flightRepo.findOne(ticket.getFlightId());
+        if (flight.get().getSeats() == 0) {
+            throw new ServiceException("No more seats available");
+        }
+
+        Flight foundFlight = flight.get();
+        foundFlight.setSeats(foundFlight.getSeats() - 1);
+        foundFlight.setId(ticket.getFlightId());
+        flightRepo.update(foundFlight);
+
+        Optional<Ticket> addedTicket = ticketRepo.save(ticket);
+        notifyObservers(new AeroportEvent(EEventType.BOUGHT_TICKET, ticket));
+
+        return addedTicket.get();
     }
 }
