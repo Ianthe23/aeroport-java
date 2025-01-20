@@ -105,4 +105,11 @@ public class AeroportService implements IService<Integer>, IObservable<AeroportE
 
         return addedTicket.get();
     }
+
+    public List<Flight> getAllFlights() {
+        Iterable<Flight> list = flightRepo.findAll();
+        List<Flight> flights = new ArrayList<>();
+        list.forEach(flights::add);
+        return flights;
+    }
 }

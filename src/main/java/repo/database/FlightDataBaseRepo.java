@@ -6,6 +6,7 @@ import repo.database.utils.AbstractDataBaseRepo;
 import repo.database.utils.DataBaseAcces;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ public class FlightDataBaseRepo extends AbstractDataBaseRepo<Long, Flight> imple
     private final String GET_ID_FROM_FLIGHT_FROM_TO_DATE = "SELECT id from flight WHERE from_city = ? AND to_city = ? AND departureTime = ? and landingTime = ?";
     private final String GET_FLIGHT_BY_ID = "SELECT * from flight WHERE id = ?";
     private final String UPDATE_SEATS_FROM_FLIGHT_BY_ID = "UPDATE flight SET seats = ? WHERE id = ?";
+    private final String GET_ALL_FLIGHTS = "SELECT * from flight";
 
 
     public FlightDataBaseRepo(DataBaseAcces data, String table) {
@@ -46,7 +48,23 @@ public class FlightDataBaseRepo extends AbstractDataBaseRepo<Long, Flight> imple
 
     @Override
     public Iterable<Flight> findAll() {
-        return null;
+        List<Flight> flights = new ArrayList<>();
+        try (PreparedStatement statement = data.createStatement(GET_ALL_FLIGHTS)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Flight flight = new Flight(
+                        resultSet.getString("from_city"),
+                        resultSet.getString("to_city"),
+                        resultSet.getTimestamp("departureTime").toLocalDateTime(),
+                        resultSet.getTimestamp("landingTime").toLocalDateTime(),
+                        resultSet.getInt("seats")
+                );
+                flights.add(flight);
+            }
+            return flights;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

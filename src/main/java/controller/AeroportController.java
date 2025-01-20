@@ -16,6 +16,7 @@ import utils.observer.IObserver;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -93,6 +94,9 @@ public class AeroportController implements IObserver<AeroportEvent> {
         initTicketsFromDate();
         initializeTableFromDate();
 
+        initFlightsFromDateToFrom();
+        initializeTableFromDateFromTo();
+
         setFields();
     }
 
@@ -100,6 +104,7 @@ public class AeroportController implements IObserver<AeroportEvent> {
     public void initialize() {
         initializeTable();
         initializeTableFromDate();
+        initializeTableFromDateFromTo();
     }
 
     private void initializeTable() {
@@ -132,6 +137,32 @@ public class AeroportController implements IObserver<AeroportEvent> {
         LocalDate date = LocalDate.of(2024, 1, 24);
         Iterable<Ticket> ticketsFromDate = service.getAllTicketsByDate(date);
         ticketsFromDate.forEach(modelTicketsFromDate::add);
+    }
+
+    private void initFlightsFromDateToFrom() {
+        LocalDate date = datePicker.getValue();
+        String from = comboBoxFrom.getValue();
+        String to = comboBoxTo.getValue();
+
+        List<Flight> flights = new ArrayList<>();
+        if (date == null || from == null || to == null) {
+            flights = service.getAllFlights();
+        } else {
+            flights = service.getFlightsByDateAndFromTo(date, from, to);
+        }
+
+        modelFlightsByDate.clear();
+        flights.forEach(flight -> {
+            modelFlightsByDate.add(flight);
+        });
+
+        List<Long> flightIds = modelFlightsByDate.stream().map(flight -> service.getIds(flight.getDepartureTime(), flight.getLandingTime(), flight.getFrom(), flight.getTo())).toList();
+
+        List<FlightRow> rows = IntStream.range(0, modelFlightsByDate.size())
+                .mapToObj(i -> new FlightRow(flightIds.get(i), modelFlightsByDate.get(i)))
+                .collect(Collectors.toList());
+
+        flightsByDateTableView.setItems(FXCollections.observableArrayList(rows));
     }
 
     private void setFields() {
@@ -182,5 +213,6 @@ public class AeroportController implements IObserver<AeroportEvent> {
     public void update(AeroportEvent aeroportEvent) {
         initPurchasedTickets();
         initTicketsFromDate();
+        initFlightsFromDateToFrom();
     }
 }
